@@ -32,7 +32,17 @@ app.get('/', function(req, res) {
 app.get('/test', function(req, res) {
   res.send({"json":"test"});
 });
-
+app.post('/test', function(req, res) {
+  if(req.body.sn)
+  {
+	console.log("sn: "+req.body.sn);
+	res.send({"status" : "ok"});
+  }
+  else
+  {
+	console.log("error");
+	res.send({"status" :"failed"});
+});
 // 可以将一类的路由单独保存在一个文件中
 app.use('/todos', todos);
 
